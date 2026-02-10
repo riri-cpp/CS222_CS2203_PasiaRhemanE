@@ -9,4 +9,3 @@ double exchangeRate = double.Parse(Console.ReadLine());
 double eurAmount = usdAmount * exchangeRate;
 
 Console.WriteLine("Amount in EUR: {0:F2}", eurAmount);
-
