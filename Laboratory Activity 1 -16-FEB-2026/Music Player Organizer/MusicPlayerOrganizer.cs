@@ -13,11 +13,10 @@ public class Song
         duration = 0;
     }
 
-    public Song(string title, string artist)
+    public Song(string title, string artist) : this()
     {
         this.title = title;
         this.artist = artist;
-        this.duration = 0;
     }
 
     public Song(string title, string artist, double duration)
@@ -69,7 +68,6 @@ public class MusicPlayerOrganizer
             string durationInput = Console.ReadLine();
             double duration;
 
-            // Handle empty duration
             if (string.IsNullOrEmpty(durationInput))
             {
                 duration = 0;
