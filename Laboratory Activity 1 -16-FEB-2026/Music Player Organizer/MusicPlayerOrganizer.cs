@@ -1,6 +1,6 @@
 ﻿using System;
 
-class Song
+public class Song
 {
     public string title;
     public string artist;
@@ -34,9 +34,9 @@ class Song
 
 }
 
-class MusicPlayerOrganizer
+public class MusicPlayerOrganizer
 {
-    static void Main()
+    public static void Main()
     {
         Console.Write("Songs to add: ");
         int numSongs = int.Parse(Console.ReadLine());
