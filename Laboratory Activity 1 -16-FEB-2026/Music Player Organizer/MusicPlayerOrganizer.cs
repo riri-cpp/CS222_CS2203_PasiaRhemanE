@@ -34,7 +34,7 @@ class Song
 
 }
 
-class Program
+class MusicPlayerOrganizer
 {
     static void Main()
     {
