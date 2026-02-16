@@ -51,11 +51,33 @@ class Program
             Console.Write("Title: ");
             string title = Console.ReadLine();
 
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "Unknown";
+            }
+
+
             Console.Write("Artist: ");
             string artist = Console.ReadLine();
 
+            if (string.IsNullOrEmpty(artist))
+            {
+                artist = "Unknown";
+            }
+
             Console.Write("Duration (minutes): ");
-            double duration = double.Parse(Console.ReadLine());
+            string durationInput = Console.ReadLine();
+            double duration;
+
+            // Handle empty duration
+            if (string.IsNullOrEmpty(durationInput))
+            {
+                duration = 0;
+            }
+            else
+            {
+                duration = double.Parse(durationInput);
+            }
 
             Console.WriteLine();
 
@@ -74,7 +96,15 @@ class Program
             totalDuration += song.duration;
         }
 
-        double averageDuration = totalDuration / numSongs;
+        double averageDuration;
+        if (numSongs > 0)
+        {
+            averageDuration = totalDuration / numSongs;
+        }
+        else
+        {
+            averageDuration = 0;
+        }
 
         Console.WriteLine();
         Console.WriteLine($"Total Duration: {totalDuration:F2} mins");
