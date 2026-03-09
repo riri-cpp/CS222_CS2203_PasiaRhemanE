@@ -111,8 +111,15 @@ public class BankAccount
 
     public void deposit(double amount)
     {
-        balance += amount;
-        Console.WriteLine($"Deposited: PHP {amount:N2}");
+        if (amount >= 0)
+        {
+            balance += amount;
+            Console.WriteLine($"Deposited: PHP {amount:N2}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid deposit amount. Deposit failed.");
+        }
     }
 
     public void withdraw(double amount)
