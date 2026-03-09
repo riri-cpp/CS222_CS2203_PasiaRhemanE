@@ -8,7 +8,7 @@ Console.Write("Enter initial balance: ");
 account.Balance = double.Parse(Console.ReadLine()!);
 
 Console.WriteLine($"Welcome, {account.AccountHolder}!");
-Console.WriteLine($"Initial Balance: PHP {account.Balance}");
+Console.WriteLine($"Initial Balance: PHP {account.Balance}\n");
 
 bool exit = false;
 while (!exit)
@@ -19,9 +19,9 @@ while (!exit)
     Console.WriteLine("3. Withdraw");
     Console.WriteLine("4. Exit");
     Console.Write("Choose an option: ");
-    Console.WriteLine();
 
     string choice = Console.ReadLine()!;
+    Console.WriteLine();
 
     switch (choice)
     {
@@ -87,7 +87,7 @@ public class BankAccount
         if(amount <= balance)
         {
             balance -= amount;
-            Console.WriteLine($"Withdrew: PHP {amount:C}");
+            Console.WriteLine($"Withdrew: PHP {amount}");
         }
         else
         {
