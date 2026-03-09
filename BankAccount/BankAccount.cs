@@ -26,26 +26,26 @@ while (!exit)
     switch (choice)
     {
         case "1":
-            Console.WriteLine($"Current Balance: PHP {account.Balance:N2}");
+            Console.WriteLine($"Current Balance: PHP {account.Balance:N2}\n");
             break;
         case "2":
             Console.Write("Enter deposit amount: ");
             double depositAmount = double.Parse(Console.ReadLine()!);
             account.deposit(depositAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance:N2}");
+            Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
             break;
         case "3":
             Console.Write("Enter amount to withdraw: ");
             double withdrawAmount = double.Parse(Console.ReadLine()!);
             account.withdraw(withdrawAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance:N2}");
+            Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
             break;
         case "4":
             Console.WriteLine("Thank you for using our banking system.");
             exit = true;
             break;
         default:
-            Console.WriteLine("Invalid option, please try again.");
+            Console.WriteLine("Invalid option, please try again.\n");
             break;
     }
 }
