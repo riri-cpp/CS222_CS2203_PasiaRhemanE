@@ -1,17 +1,33 @@
 ﻿using System;
 
-BankAccount account = new BankAccount();
-Console.Write("Enter account holder's name: ");
-account.AccountHolder = Console.ReadLine()!;
-
-Console.Write("Enter initial balance: ");
-account.Balance = double.Parse(Console.ReadLine()!);
-
-Console.WriteLine($"Welcome, {account.AccountHolder}!");
-Console.WriteLine($"Initial Balance: PHP {account.Balance:N2}\n");
+BankAccount ba = CreateAccount();
+ShowWelcome(ba);
 
 bool exit = false;
 while (!exit)
+{
+   exit = ShowMenu(ba);
+
+}
+static BankAccount CreateAccount()
+{
+    BankAccount account = new BankAccount();
+    Console.Write("Enter account holder's name: ");
+    account.AccountHolder = Console.ReadLine()!;
+
+    Console.Write("Enter initial balance: ");
+    account.Balance = double.Parse(Console.ReadLine()!);
+
+    return account;
+}
+
+static void ShowWelcome(BankAccount account)
+{
+    Console.WriteLine($"Welcome, {account.AccountHolder}!");
+    Console.WriteLine($"Initial Balance: PHP {account.Balance:N2}\n");
+}
+
+static bool ShowMenu(BankAccount account)
 {
     Console.WriteLine("=== BANK MENU ===");
     Console.WriteLine("1. Check Balance");
@@ -26,29 +42,46 @@ while (!exit)
     switch (choice)
     {
         case "1":
-            Console.WriteLine($"Current Balance: PHP {account.Balance:N2}\n");
+            DisplayBalance(account);
             break;
         case "2":
-            Console.Write("Enter deposit amount: ");
-            double depositAmount = double.Parse(Console.ReadLine()!);
-            account.deposit(depositAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
+            DepositAmount(account);
             break;
         case "3":
-            Console.Write("Enter amount to withdraw: ");
-            double withdrawAmount = double.Parse(Console.ReadLine()!);
-            account.withdraw(withdrawAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
+            WithdrawAmount(account);
             break;
         case "4":
             Console.WriteLine("Thank you for using our banking system.");
-            exit = true;
-            break;
+            return true;
         default:
             Console.WriteLine("Invalid option, please try again.\n");
             break;
     }
+    Console.WriteLine();
+    return false;
 }
+
+static void DisplayBalance(BankAccount account)
+{
+    Console.WriteLine($"Current Balance: PHP {account.Balance:N2}\n");
+}
+
+static void DepositAmount(BankAccount account)
+{
+    Console.Write("Enter deposit amount: ");
+    double amount = double.Parse(Console.ReadLine()!);
+    account.deposit(amount);
+    Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
+}
+
+static void WithdrawAmount(BankAccount account)
+{
+    Console.Write("Enter withdrawal amount: ");
+    double amount = double.Parse(Console.ReadLine()!);
+    account.withdraw(amount);
+    Console.WriteLine($"New Balance: PHP {account.Balance:N2}\n");
+}
+
 public class BankAccount
 {
     private string accountHolder;
