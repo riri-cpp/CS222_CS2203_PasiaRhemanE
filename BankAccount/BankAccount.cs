@@ -8,7 +8,7 @@ Console.Write("Enter initial balance: ");
 account.Balance = double.Parse(Console.ReadLine()!);
 
 Console.WriteLine($"Welcome, {account.AccountHolder}!");
-Console.WriteLine($"Initial Balance: PHP {account.Balance}\n");
+Console.WriteLine($"Initial Balance: PHP {account.Balance:N2}\n");
 
 bool exit = false;
 while (!exit)
@@ -26,19 +26,19 @@ while (!exit)
     switch (choice)
     {
         case "1":
-            Console.WriteLine($"Current Balance: {account.Balance:C}");
+            Console.WriteLine($"Current Balance: PHP {account.Balance:N2}");
             break;
         case "2":
             Console.Write("Enter deposit amount: ");
             double depositAmount = double.Parse(Console.ReadLine()!);
             account.deposit(depositAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance}");
+            Console.WriteLine($"New Balance: PHP {account.Balance:N2}");
             break;
         case "3":
             Console.Write("Enter amount to withdraw: ");
             double withdrawAmount = double.Parse(Console.ReadLine()!);
             account.withdraw(withdrawAmount);
-            Console.WriteLine($"New Balance: PHP {account.Balance}");
+            Console.WriteLine($"New Balance: PHP {account.Balance:N2}");
             break;
         case "4":
             Console.WriteLine("Thank you for using our banking system.");
@@ -79,7 +79,7 @@ public class BankAccount
     public void deposit(double amount)
     {
         balance += amount;
-        Console.WriteLine($"Deposited: PHP {amount}");
+        Console.WriteLine($"Deposited: PHP {amount:N2}");
     }
 
     public void withdraw(double amount)
@@ -87,7 +87,7 @@ public class BankAccount
         if(amount <= balance)
         {
             balance -= amount;
-            Console.WriteLine($"Withdrew: PHP {amount}");
+            Console.WriteLine($"Withdrew: PHP {amount:N2}");
         }
         else
         {
