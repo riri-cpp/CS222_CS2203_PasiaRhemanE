@@ -17,26 +17,26 @@ class BankAccount
     private string accountNumber;
     protected double balance;
 
-    public BankAccount (string accnum, double initialbal)
+    public BankAccount(string accnum, double initialbal)
     {
         accountNumber = accnum;
         balance = initialbal;
     }
-    public void Deposit (double amount)
+    public void Deposit(double amount)
     {
         if (amount <= 0)
-        { 
+        {
             Console.WriteLine("Deposit amount must be positive.");
             return;
         }
         else
-        { 
+        {
             balance += amount;
             Console.WriteLine($"Deposited PHP {amount:N2}");
         }
     }
-    
-    public void Withdraw (double amount)
+
+    public void Withdraw(double amount)
     {
         if (amount > balance)
         {
@@ -62,8 +62,8 @@ class SavingsAccount : BankAccount
 {
     public double interestRate;
 
-    public SavingsAccount (string accnum, double initialbal, double rate)
-        : base (accnum, initialbal) // this is calling the constructor of the parent class (BankAccount) or the super() in Java
+    public SavingsAccount(string accnum, double initialbal, double rate)
+        : base(accnum, initialbal) // this is calling the constructor of the parent class (BankAccount) or the super() in Java
     {
         interestRate = rate;
     }
@@ -81,8 +81,8 @@ class CheckingAccount : BankAccount
 {
     public double overdraftLimit;
 
-    public CheckingAccount (string accnum, double initialbal, double limit)
-        : base (accnum, initialbal)
+    public CheckingAccount(string accnum, double initialbal, double limit)
+        : base(accnum, initialbal)
     {
         overdraftLimit = limit;
     }
