@@ -39,6 +39,7 @@ class SmartPhone : ICamera, IMusicPlayer, IMessenger
         Console.WriteLine("Sending a message...");
     }
 }
+
 class Computer : IMusicPlayer, IMessenger
 {
     public void playMusic()
