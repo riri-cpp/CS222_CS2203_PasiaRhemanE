@@ -8,7 +8,7 @@ p1.Pay(500);
 p2.Pay(1200);
 p3.Pay(250);
 
-interface IPayment
+interface IPayment // interfaces are always named starting with 'I'
 {
     void Pay(double amount);
 }
